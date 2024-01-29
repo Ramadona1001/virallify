@@ -1,0 +1,30 @@
+.filter{
+  &__btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include respond(tab){
+      flex-wrap: wrap;
+    }
+  }
+  input[type="radio"]:checked + label{
+    background-color:  $second-color !important;
+    color: $white-color !important;
+  }
+
+  label{
+    border:  none !important;
+    color: #979797 !important;
+    transition: background-color .2s ease-in-out;
+    border-radius: 15px;
+    padding: 5px 48px;
+    @include respond(tab){
+      padding: 5px 25px;
+    }
+    font-weight: 600 ;
+    &:hover{
+      background-color:  $second-color !important;
+      color: $white-color !important;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+a {
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+p {
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+video,
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+textarea:focus,
+textarea,
+input,
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  border: 1px solid $main-color !important;
+  box-shadow: 0 0 5px rgba($main-color, 0.2) !important;
+}
+
+section {
+  overflow: hidden;
+}

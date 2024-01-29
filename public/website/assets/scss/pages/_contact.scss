@@ -1,0 +1,84 @@
+.contact {
+  .contact-us {
+    border-radius: 20px;
+    &.flout-butterfly {
+      &::after,
+      &::before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='221.523' height='253.007' viewBox='0 0 221.523 253.007'%3E%3Cdefs%3E%3ClinearGradient id='linear-gradient' x1='6.945' y1='3.772' x2='8.082' y2='3.772' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23fff'/%3E%3Cstop offset='1' stop-color='%2310bae7'/%3E%3C/linearGradient%3E%3ClinearGradient id='linear-gradient-2' x1='-0.111' y1='4.821' x2='1.398' y2='5.129' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23ae4593'/%3E%3Cstop offset='1' stop-color='%2310bae7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg id='Group_249' data-name='Group 249' transform='translate(6135.779 2050.889) rotate(14)' opacity='0.73'%3E%3Cg id='Butterfly' transform='translate(-6400 -520)'%3E%3Cpath id='Path_63' data-name='Path 63' d='M187.418 28.2s41.258 39.086 32.176 110.455c-5.669 44.538-41.866 111.188-154.028 110.131 0 0 42.873-5.886 71.47-22.028 0 0-5.778-10.14-40.218-9.457-45.163.9-39.194-10.648-30.145-32.883C79.4 153.112 92.58 137.12 179.817 168.6c0 0-36.83-25.9-46.769-68.822C126.13 69.912 143.3 25.482 187.418 28.2Z' transform='translate(-52.204 -28.077)' fill='url(%23linear-gradient)'/%3E%3Cpath id='Path_64' data-name='Path 64' d='M206.087 41.5s23.426 23.293 14.76 88.261c-7.234 54.2-83.166 118.714-163.327 109.165 0 0 50.449-.333 76.822-18.515 0 0-3.338-7.892-32.317-2.181-38 7.492-31.277-3.372-20.379-23.909 15.326-28.921 28.746-44.672 97.21-30.469 0 0-27.031-16.883-28.987-52.464C148.5 86.621 169.507 45.712 206.087 41.5Z' transform='translate(-51.734 -30.326)' fill='url(%23linear-gradient-2)'/%3E%3Cpath id='Path_65' data-name='Path 65' d='M210.675 37.731s31.335 42.4 8.158 108.715c-14.469 41.383-71.553 89.759-168.264 96.7 0 0 50.274-10.6 71.686-24.226 0 0-3.43-10.356-36.38-14.244-43.206-5.095-35.156-15.235-22.019-35.065 18.506-27.93 34.307-41.325 110.988-.067 0 0-29.812-29.337-30.536-71.253C143.809 69.108 169.209 29.339 210.675 37.731Z' transform='translate(-50.57 -29.504)' fill='%23ae4593' opacity='0.3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+      &::after {
+        top: 5px;
+        #{$e}: 5px;
+        height: 100px;
+        width: 100px;
+      }
+      &::before {
+        bottom: 5px;
+        #{$s}: 5px;
+        height: 60px;
+        width: 60px;
+      }
+    }
+  }
+  &__methods {
+    padding: 48px 0px;
+    @include respond(tab) {
+      padding-top: 48px;
+      padding-bottom: 0;
+      padding-#{$s}: 32px;
+    }
+    &__method {
+      display: flex;
+      align-items: center;
+      margin-bottom: 48px;
+      &__icon {
+        position: relative;
+        background-color: $second-color;
+        border-radius: 50%;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i {
+          color: $white-color;
+          font-size: 20px;
+        }
+        &::before {
+          content: "";
+          background-image: url(../assets/img/contact/path_arrow.svg);
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+          position: absolute;
+          #{$s}: -25px;
+          top: -55px;
+          height: 85px;
+          width: 85px;
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
+
+.our-world {
+  &__head {
+    .icon-world {
+      height: 100px;
+      width: 100px;
+      margin: auto;
+      margin-bottom: 16px;
+    }
+    &__title {
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+  }
+  &__world {
+    padding-top: 16px;
+    background-image: url(../assets/img/contact/world.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}

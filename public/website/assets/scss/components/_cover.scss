@@ -1,0 +1,38 @@
+.cover {
+  background-color: $dark-gray-color;
+  &__content {
+    background-color: $main-color;
+    border-radius: 24px;
+    padding: 56px 48px;
+    margin: 48px;
+		@include respond(tab){
+			margin: 0px;
+			padding: 56px 16px;
+		}
+		.main-title{
+			&__text {
+				margin-bottom: 48px;
+				@include respond(tab){
+					margin-bottom: 32px;
+				}
+			}
+			&__desc{
+				margin-bottom: 32px;
+				@include respond(tab){
+					margin-bottom: 16px;
+				}
+			}
+
+		}
+		&.flout-butterfly{
+			&::after {
+				top: -55px;
+				#{$e}: -55px;
+			}
+			&::before {
+				bottom: -10px;
+				#{$s}: -15px;
+			}
+		}
+  }
+}

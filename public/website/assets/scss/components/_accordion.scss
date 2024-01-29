@@ -1,0 +1,47 @@
+.accordion {
+  .accordion-item {
+    border: none;
+    border-bottom: 2px solid $gray-color;
+
+    .accordion-header {
+      .accordion-button {
+        color: $black-color;
+        background-color: transparent;
+        box-shadow: none;
+        position: relative;
+
+        &.collapsed {
+          &::after {
+            transform: translateY(-50%) rotate(0deg);
+          }
+        }
+
+        &::after {
+          all: unset;
+          position: absolute;
+          color: $second-color;
+          content: "\f060";
+          font-family: "Font Awesome 6 Free";
+          font-weight: 600;
+          font-size: 20px;
+          transition: transform 0.3s;
+          margin-#{$s}: 5px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%) rotate(-90deg);
+          #{$e}: 20px;
+        }
+      }
+    }
+
+    .accordion-collapse {
+      .accordion-body {
+        box-shadow: 0 0 10px rgba($gray-color, 0.8);
+      }
+
+      &.show {
+        border-bottom: 1px solid transparent;
+      }
+    }
+  }
+}

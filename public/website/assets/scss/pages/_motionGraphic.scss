@@ -1,0 +1,34 @@
+.videos {
+  &__video {
+    position: relative;
+    cursor: pointer;
+    &__icon {
+      position: absolute;
+      top: 50%;
+      #{$e}: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      background-color: rgba($color: $main-color, $alpha: 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      i {
+        color: white;
+      }
+    }
+    &:hover {
+      .videos__video__icon {
+        background-color: rgba($color: $main-color, $alpha: 0.7);
+        i {
+          color: $dark-gray-color;
+        }
+      }
+      h3{
+        text-decoration: underline;
+      }
+    }
+  }
+}

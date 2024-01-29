@@ -1,0 +1,47 @@
+.service{
+  &__card{
+    padding: 16px 48px;
+    border-radius: 15px;
+    height: 100%;
+    text-align: center;
+    transition: background-color, top  .3s ease-in;
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    &::before{
+      content: "";
+      position: absolute;
+      background-color: $main_color;
+      height: 0;
+      width: 100%;
+      transition: height .3s ease-in;
+      top: 0;
+      #{$s} :0;
+      z-index: -1;
+      border-radius: inherit;
+    }
+    &__content{
+      padding-top: 8px;
+      &__title{
+        color: $main_color;
+        font-weight: bold;
+        margin: 16px 0;
+      }
+      &__desc{
+        color: gray;
+      }
+    }
+    &:hover{
+      // background-color: $main_color;
+      top: -4px;
+      &::before{
+        height: 100%;
+      }
+      .service__card__content {
+          &__title, &__desc{
+            color: $white-color;
+          }
+      }
+    }
+  }
+}

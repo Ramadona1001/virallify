@@ -1,0 +1,34 @@
+.popup-window{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 99999999999;
+  background-color:  rgba(0, 0, 0 , .8);
+  color: white;
+  transition: opacity .3s ease-in-out;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  i{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: white;
+  }
+  iframe{
+    width: 55%;
+    height: 85%;
+    @include respond (sm-lap){
+      height: 40%;
+      width: 95%;
+    }
+  }
+}
+
+.modal{
+  &-dialog{
+    top: 50%;
+    transform: translateY(-50%) !important;
+  }
+}

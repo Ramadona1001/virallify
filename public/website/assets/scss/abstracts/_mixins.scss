@@ -1,0 +1,19 @@
+@mixin respond($breakpoint) {
+
+  @if $breakpoint == mob {
+    @media only screen and (max-width: 576px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==  sm-lap {
+    @media only screen and (max-width: 992px) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.chat-contact {
+  position: fixed;
+  z-index: 100;
+  bottom: 30px;
+  right: 30px;
+  background-color: #22c15e;
+  cursor: pointer;
+  font-size: 25px;
+  &:hover {
+    background-color: #1bcf60;
+  }
+  a {
+    color: white;
+  }
+}

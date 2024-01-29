@@ -1,0 +1,36 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+
+@import 'base/base';
+@import 'base/reset';
+@import 'base/typography';
+
+@import 'components/buttons';
+@import 'components/carousel';
+@import 'components/dropdown';
+@import 'components/cover';
+@import 'components/animation';
+@import 'components/accordion';
+@import 'components/chat.btn';
+@import 'components/btnGroup';
+@import 'components/popupWindow';
+@import 'components/contactUs';
+@import 'components/gallery';
+@import 'components/service';
+@import 'components/whyOcoda';
+@import 'components/packages';
+
+@import 'layout/navigation';
+@import 'layout/header';
+@import 'layout/footer';
+
+
+@import 'pages/home';
+@import 'pages/contact';
+@import 'pages/webDesign';
+@import 'pages/motionGraphic';
+
+
+@import 'themes/theme';
+@import 'themes/admin';

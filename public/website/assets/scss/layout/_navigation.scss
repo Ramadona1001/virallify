@@ -1,0 +1,24 @@
+nav.navbar {
+  background-color: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: $main-color;
+        margin: 0 24px;
+        font-weight: 700;
+        &:hover , &.active {
+          color: $second-color;
+        }
+      }
+    }
+  }
+  .navbar__links{
+    a:hover {
+      color: $second-color !important;
+    }
+  }
+}

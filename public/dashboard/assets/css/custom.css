@@ -1,0 +1,237 @@
+
+p,h1,h2,h3,h4,h5,h6,div,a,li{
+    font-family: 'Cairo', sans-serif !important;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #B7302B;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #570002;
+}
+a{
+    color:#B7302B;
+    transition: 0.5s;
+}
+.text-primary{
+    color: #e06f32!important;
+}
+.static{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+}
+.table-static{
+    height: 100%;
+    margin-bottom: 0;
+}
+.static .card-body{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dtr-details{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 8px;
+}
+.dtr-details li{
+   display: inline-block;
+}
+
+
+#dropzone , #dropzone2 {
+    position: relative;
+    border: 1px dotted #000;
+    border-radius: 20px;
+    color: #000;
+    font: bold 24px/200px arial;
+    height: 200px;
+    margin:10px auto;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+
+}
+
+#dropzone:hover , #dropzone2:hover {
+    border: 1px solid #FE5;
+    color: #FE5;
+}
+#dropzone.hover  , #dropzone2.hover {
+    border: 10px solid #FE5;
+    color: #FE5;
+}
+
+#dropzone.dropped , #dropzone2.dropped {
+    background: #222;
+    border: 10px solid #444;
+}
+
+#dropzone div , #dropzone2 div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#dropzone img , #dropzone2 img {
+    border-radius: 10px;
+    vertical-align: middle;
+    max-width: 95%;
+    max-height: 95%;
+}
+
+#dropzone [type="file"] , #dropzone2 [type="file"] {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.image-table{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    object-fit: contain;
+}
+.table-video{
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    object-fit: contain;
+}
+.left-col {
+    float: left;
+    width: 50%;
+}
+
+
+.right-col {
+    float: left;
+    width: 50%;
+}
+
+.iti { width: 100%; }
+.date-reminder{
+    text-align: end;
+
+}
+.card-header p{
+    margin: 0;
+}
+
+
+
+.modal-dialog-scrollable {
+    height: auto !important;
+}
+
+#imagePreview{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.input-lg+.select2-container--default .select2-selection--single {
+    height: 40px !important;
+    padding: 10px 16px;
+    font-size: 16px;
+    line-height: 1.33;
+    border-radius: 6px;
+}
+.input-lg+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    top: 85% !important;
+}
+.input-lg+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 24px !important;
+}
+.input-lg+.select2-container--default .select2-selection--single {
+    border: 1px solid #CCC !important;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+
+.required_star::after {
+    content: '*';
+    padding: 5px;
+    color: #B7302B;
+}
+
+
+
+.ck-blurred.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.cke_editable.cke_editable_inline.cke_contents_ltr.cke_show_borders{
+    min-height: 200px;
+}
+
+
+
+.profile-pic {
+    color: transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: fit-content;
+    margin: 0px auto 20px;
+}
+
+.profile-pic input {
+    display: none;
+}
+.profile-pic img {
+    position: absolute;
+    object-fit: cover;
+    width: 165px;
+    height: 165px;
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+    border-radius: 100px;
+    z-index: 0;
+}
+.profile-pic .-label {
+    cursor: pointer;
+    height: 165px;
+    width: 165px;
+}
+.profile-pic:hover .-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    color: #fafafa;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 100px;
+    /*margin-bottom: 0;*/
+}
+.profile-pic span {
+    display: inline-flex;
+    padding: 0.2em;
+    height: 2em;
+}

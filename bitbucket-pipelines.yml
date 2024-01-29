@@ -1,0 +1,21 @@
+image: php:8.0-fpm
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - composer
+        script:
+          - bash ./devops/build-server.sh
+          - bash ./devops/build-project.sh
+        services:
+          - mysql
+definitions:
+  services:
+    mysql:
+      image: mysql:8.0
+      environment:
+        MYSQL_DATABASE: 'ocodaweb'
+        MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+        MYSQL_USER: 'gouda'
+        MYSQL_PASSWORD: 'password'

@@ -1,0 +1,33 @@
+.gallery {
+  &__item {
+    padding: 48px;
+    transition: filter 0.3s ease-in;
+    @include respond(tab) {
+      padding: 24px;
+    }
+    &:hover {
+      filter: grayscale(50%);
+    }
+  }
+  &__cards {
+    &__card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: rgba(gray, 0.7);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        border-radius: 50%;
+        transition: all 0.5s ease-in-out;
+      }
+      &:hover::before {
+        transform: translate(0%, 0%) scale(2);
+        inset: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+// Start Dropdown
+
+.dropdown {
+  position: relative;
+
+  // Btn Icons
+  .dropdown-toggle {
+    &::after {
+      all: unset;
+      position: absolute;
+      content: "\f107";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      transition: transform 0.3s;
+      margin-#{$s}: 5px;
+    }
+
+    &.show {
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    top: 120%;
+    padding: 0;
+    #{$s}: 50%;
+    transform: translateX(-50%);
+    border: none;
+    transition: opacity .3s ease-in-out !important;
+
+    &.show {
+      opacity: 1;
+      transform: translateX(50%);
+      box-shadow: 0 0 5px 0 rgba($gray-color, 0.5);
+    }
+
+    .content-menu {
+      display: none;
+    }
+
+    .dropdown-item {
+      display: block;
+      transition: background-color .3s ease-in-out;
+      &.active ~ .content-menu,
+      &:hover ~ .content-menu {
+        display: block;
+      }
+      &:hover{
+        background-color: $second-color !important;
+        color: white !important;
+      }
+    }
+  }
+}
+
+// End Dropdown

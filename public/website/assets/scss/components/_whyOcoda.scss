@@ -1,0 +1,27 @@
+.why-ocoda{
+  &__reasons{
+    padding: 32px 0px;
+    &__reason{
+      &__icon{
+        margin-bottom: 16px;
+        text-align: center;
+        img{
+          height: 64px;
+          width: 64px;
+        }
+      }
+      &__title{
+        text-align: center;
+        color: $second-color;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      &__desc{
+        color:#9688A5 ;
+        @include respond(tab){
+        text-align: center;
+      }
+      }
+    }
+  }
+}

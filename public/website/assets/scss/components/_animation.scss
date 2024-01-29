@@ -1,0 +1,20 @@
+@keyframes vid_animation {
+  0% {
+    inset: 0px;
+  }
+  50% {
+    inset: -3px;
+  }
+  100% {
+    inset: 0px;
+  }
+}
+
+@keyframes circle_move {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

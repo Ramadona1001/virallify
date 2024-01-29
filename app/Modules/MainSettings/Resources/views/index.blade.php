@@ -41,6 +41,10 @@
                             <label>{{ transWord('Name') }} - {{ $lang }}</label>
                             <input type="text" name="{{ $key }}[name]" value="{{ $settings->name ?  $settings->translate($key)->name : "" }}" class="form-control" placeholder="{{ transWord('Name') }}" required>
                         </div>
+                        <div class="form-group mt-3 col-md-12">
+                            <label>{{ transWord('Content') }} - {{ $lang }}</label>
+                            <textarea name="{{ $key }}[content]" id="content" cols="30" rows="3" class="form-control">{{ $settings->content ?  $settings->translate($key)->content : "" }}</textarea>
+                        </div>
                     </div>
                     @endforeach
                 </div>

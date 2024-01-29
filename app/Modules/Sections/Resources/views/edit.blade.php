@@ -37,11 +37,11 @@
                                 <th>{{ transWord('Actions') }}</th>
                             </thead>
                             <tbody>
-                                @foreach ($about_section->gallery as $index => $image)
+                                @foreach ($section->gallery as $index => $image)
                                     <tr>
                                         <td>{{ ($index+1) }}</td>
                                         <td><img src="{{ asset($image->image) }}" class="img-thumbnail" style="width:100px;"></td>
-                                        <td><a href="{{ route('delete_gallery_about_sections',['gallery'=>$image]) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                                        <td><a href="{{ route('delete_gallery_sections',['gallery'=>$image]) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -50,7 +50,7 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <form action="{{route('update_about_sections' , ['about_section' => $about_section])}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('update_sections' , ['section' => $section])}}" method="post" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="nav-align-top mb-4">
@@ -67,17 +67,17 @@
                                             <div class="tab-pane fade  @if ($loop->index == 0) show active @endif" id="nav-{{ $key }}" role="tabpanel" aria-labelledby="nav-{{ $key }}-tab">
                                                 <div class="form-group mt-3 col-md-12">
                                                     <label for="name">{{ transWord('Title') }} - {{ $lang }}</label>
-                                                    <input value="{{$about_section->translate($key)->name}}" id="name" type="text" name="{{ $key }}[name]" class="form-control" placeholder="{{ transWord('Title') }}" required>
+                                                    <input value="{{$section->translate($key)->name}}" id="name" type="text" name="{{ $key }}[name]" class="form-control" placeholder="{{ transWord('Title') }}" required>
                                                 </div>
                                                 
                                                 <div class="form-group mt-3 col-md-12">
                                                     <label for="name">{{ transWord('Sub Title') }} - {{ $lang }}</label>
-                                                    <input value="{{$about_section->translate($key)->sub_title}}" id="sub_title" type="text" name="{{ $key }}[sub_title]" class="form-control" placeholder="{{ transWord('Sub Title') }}" required>
+                                                    <input value="{{$section->translate($key)->sub_title}}" id="sub_title" type="text" name="{{ $key }}[sub_title]" class="form-control" placeholder="{{ transWord('Sub Title') }}" required>
                                                 </div>
 
                                                 <div class="form-group mt-3 col-md-12">
                                                     <label for="content"> {{transWord('Content')}} - {{$lang}}</label>
-                                                    <textarea id="content" rows="5" name="{{ $key }}[content]" class="form-control" placeholder="{{ transWord('content') }}" required>{{$about_section->translate($key)->content}}</textarea>
+                                                    <textarea id="content" rows="5" name="{{ $key }}[content]" class="form-control" placeholder="{{ transWord('content') }}" required>{{$section->translate($key)->content}}</textarea>
                                                 </div>
 
 
@@ -91,7 +91,7 @@
                                         <div class="form-group row">
                                             <label for="order_no">{{transWord('Button Text')}}</label>
                                             <div class="mt-4 mt-lg-0">
-                                                <input type="text" value="{{ $about_section->btn_text }}" class="form-control" name="btn_text">
+                                                <input type="text" value="{{ $section->btn_text }}" class="form-control" name="btn_text">
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@
                                         <div class="form-group row">
                                             <label for="order_no">{{transWord('Button URL')}}</label>
                                             <div class="mt-4 mt-lg-0">
-                                                <input type="url" value="{{ $about_section->btn_url }}" class="form-control" name="btn_url">
+                                                <input type="url" value="{{ $section->btn_url }}" class="form-control" name="btn_url">
                                             </div>
                                         </div>
                                     </div>
@@ -111,7 +111,7 @@
                                         <div class="form-group row">
                                             <label for="order_no">{{transWord('Order Number')}}</label>
                                             <div class="mt-4 mt-lg-0">
-                                                <input type="number" step="1" min="0" value="{{ $about_section->order_no }}" id="order_no" class="form-control" name="order_no">
+                                                <input type="number" step="1" min="0" value="{{ $section->order_no }}" id="order_no" class="form-control" name="order_no">
                                             </div>
                                         </div>
                                     </div>
@@ -124,9 +124,13 @@
                                             </div>
                                         </div>
                                     </div>
-                        
+                                </div>
 
-
+                                <div class="row">
+                                    <div class="form-group row">
+                                        <label for="type">{{transWord('Type')}}</label>
+                                        <input type="text" name="type" id="type" class="form-control" value="{{ $section->type }}" required>
+                                    </div>
                                 </div>
 
                                 <div class="modal-footer">

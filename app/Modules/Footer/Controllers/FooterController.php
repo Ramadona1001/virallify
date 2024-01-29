@@ -71,10 +71,6 @@ class FooterController extends Controller
 
         if($request->hasFile('logo_img')){
             $file = $request->logo_img;
-            if(File::exists($footer->logo)){
-                File::delete($footer->logo);
-            }
-
             $footer->update([
                 'logo' => $this->upload($file , 'footer')
             ]);

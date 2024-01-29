@@ -85,9 +85,6 @@ class VendorAuthController extends Controller
 
 
         if ($request->hasFile('avatar')){
-            if(File::exists($user->avatar)){
-                File::delete($user->avatar);
-            }
             $user->update([
                 'avatar' => $this->upload($request->avatar,'employees')
             ]);

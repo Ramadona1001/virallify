@@ -89,7 +89,6 @@ return [
 
     'languages' => [
         'en' => 'English',
-        'ar' => 'العربية',
     ],
 
 
@@ -219,7 +218,7 @@ return [
         HomeSections\Providers\HomeSectionServiceProvider::class,
         HomeBanner\Providers\HomeBannerServiceProvider::class,
         Footer\Providers\FooterServiceProvider::class,
-        AboutSections\Providers\AboutSectionServiceProvider::class,
+        Sections\Providers\SectionServiceProvider::class,
         Coupons\Providers\CouponServiceProvider::class,
         FaqSection\Providers\FaqSettingServiceProvider::class,
         Pages\Providers\PageServiceProvider::class,

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('meta_title')->nullable();
             $table->text('meta_content')->nullable();
+            $table->text('content')->nullable();
             $table->string('meta_keywords')->nullable();
             $table->timestamps();
         });

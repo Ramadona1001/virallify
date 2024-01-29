@@ -65,20 +65,11 @@
                 </li>
                 @endcan
                 
-                @can('show_home_sections')
+                @can('show_sections')
                 <li>
-                    <a href="{{ route('show_home_sections') }}" class="waves-effect">
+                    <a href="{{ route('show_sections') }}" class="waves-effect">
                         <i class="ri-dashboard-line"></i>
-                        <span>{{ transWord('Home Sections') }}</span>
-                    </a>
-                </li>
-                @endcan
-                
-                @can('show_about_sections')
-                <li>
-                    <a href="{{ route('show_about_sections') }}" class="waves-effect">
-                        <i class="ri-dashboard-line"></i>
-                        <span>{{ transWord('About Sections') }}</span>
+                        <span>{{ transWord('Sections') }}</span>
                     </a>
                 </li>
                 @endcan

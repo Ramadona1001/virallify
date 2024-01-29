@@ -18,7 +18,7 @@ class Page extends Model implements TranslatableContract
 
     use Translatable;
     public $translatedAttributes  = ['title','content'];
-    protected $fillable = ['publish','image','created_by'];
+    protected $fillable = ['publish','image','created_by','slug'];
 
     protected $table = 'pages';
 

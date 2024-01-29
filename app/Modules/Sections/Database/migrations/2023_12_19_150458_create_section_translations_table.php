@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('about_section_translations', function (Blueprint $table) {
+        Schema::create('section_translations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('about_section_id');
-            $table->unique(['about_section_id', 'locale']);
-            $table->foreign('about_section_id')->references('id')
-                ->on('about_sections')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('section_id');
+            $table->unique(['section_id', 'locale']);
+            $table->foreign('section_id')->references('id')
+                ->on('sections')->onDelete('cascade')->onUpdate('cascade');
             $table->string('locale')->index();
             $table->string('name')->nullable();
             $table->string('sub_title')->nullable();
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('about_section_translations');
+        Schema::dropIfExists('section_translations');
     }
 };

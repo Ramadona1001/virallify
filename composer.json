@@ -52,7 +52,7 @@
             "Services\\" : "app/Modules/Services/",
             "HomeBanner\\" : "app/Modules/HomeBanner/",
             "HomeSections\\" : "app/Modules/HomeSections/",
-            "AboutSections\\" : "app/Modules/AboutSections/",
+            "Sections\\" : "app/Modules/Sections/",
             "Footer\\" : "app/Modules/Footer/",
             "Coupons\\" : "app/Modules/Coupons/",
             "Orders\\" : "app/Modules/Orders/",

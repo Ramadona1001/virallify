@@ -1,10 +1,10 @@
 <?php
 
-namespace AboutSections\Providers;
+namespace Sections\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class AboutSectionServiceProvider extends ServiceProvider
+class SectionServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -24,7 +24,7 @@ class AboutSectionServiceProvider extends ServiceProvider
     public function boot()
     {
         $ds = DIRECTORY_SEPARATOR;
-        $module = 'AboutSections';
+        $module = 'Sections';
         $this->loadRoutesFrom(__DIR__.$ds.'..'.$ds.'Routes'.$ds.'web.php');
         $this->loadMigrationsFrom(__DIR__.$ds.'..'.$ds.'Database'.$ds.'migrations');
         $this->loadFactoriesFrom(__DIR__.$ds.'..'.$ds.'Database'.$ds.'factories');

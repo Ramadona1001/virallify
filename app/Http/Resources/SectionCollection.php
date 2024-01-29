@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class HomeSectionCollection extends JsonResource
+class SectionCollection extends JsonResource
 {
     public function toArray($request)
     {
@@ -16,7 +16,7 @@ class HomeSectionCollection extends JsonResource
             'btn_text' => $this->btn_text,
             'btn_url' => $this->btn_url,
             'order_no' => $this->order_no,
-            'gallery' => HomeSectionGalleryCollection::collection($this->gallery),
+            'gallery' => SectionGalleryCollection::collection($this->gallery),
         ];
     }
 }

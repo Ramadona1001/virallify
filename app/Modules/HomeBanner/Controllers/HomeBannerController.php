@@ -74,16 +74,14 @@ class HomeBannerController extends Controller
             'btn2_text.*' =>'required|string',
             'btn2_link.*' =>'required|string',
             'content.*' =>'required|string',
-            'logo' => 'image|mimes:jpg,png,jpeg',
+            'image' => 'image|mimes:jpg,png,jpeg',
         ]);
+
 
         $home_banner->update($request->all());
 
         if($request->hasFile('image')){
             $file = $request->image;
-            if(File::exists($home_banner->image)){
-                File::delete($home_banner->image);
-            }
 
             $home_banner->update([
                 'image' => $this->upload($file , 'home_banner')

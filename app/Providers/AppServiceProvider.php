@@ -54,14 +54,14 @@ class AppServiceProvider extends ServiceProvider
         }else{
             \Mcamara\LaravelLocalization\Facades\LaravelLocalization::setSupportedLocales(
                 ['en' => ['name' => 'English','script' => 'Latn', 'native' => 'English', 'regional' => 'en_GB']],
-                ['ar' => ['name' => 'Arabic','script' => 'Arab', 'native' => 'العربية', 'regional' => 'ar_AE']],
+                // ['ar' => ['name' => 'Arabic','script' => 'Arab', 'native' => 'العربية', 'regional' => 'ar_AE']],
             );
         }
 
         if (count($app_languages) > 0) {
             Config::set('app.languages', $app_languages);
         }else{
-            Config::set('app.languages', ['en'=>'English','ar'=>'Arabic']);
+            Config::set('app.languages', ['en'=>'English']);
         }
     }
 }

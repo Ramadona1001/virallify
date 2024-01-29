@@ -109,7 +109,7 @@
                                             <label for="file" class=""> {{transWord('Image')}}</label>
                                             <div id="dropzone2">
                                                 <div>{{ transWord('Click Or Drag Here') }}</div>
-                                                <input  name="{{$home_banner ? 'image' : 'image'}}" type="file" id="imageUpload"/>
+                                                <input  name="image" type="file" id="imageUpload"/>
                                             </div>
                                         </div>
                                     </div>

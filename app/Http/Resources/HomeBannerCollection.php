@@ -16,6 +16,7 @@ class HomeBannerCollection extends JsonResource
             'btn1_link' => $this->btn1_link,
             'btn2_text' => $this->btn2_text,
             'btn2_link' => $this->btn2_link,
+            'image' => asset($this->image)
         ];
     }
 }

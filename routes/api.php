@@ -31,13 +31,10 @@ Route::middleware(['localization'])->group(function(){
             
         });
         Route::get('/plans','PlanController@index');
-        Route::get('/about-us','PageController@about');
-        Route::get('/help','PageController@help');
-        Route::get('/terms-conditions','PageController@termsConditions');
-        Route::get('/privacy-policy','PageController@privacyPolicy');
-        Route::get('/home-banner','HomeSectionController@banner');
-        Route::get('/home-sections','HomeSectionController@index');
-        Route::get('/about-sections','AboutSectionController@index');
+        Route::get('/pages/{slug}','PageController@page');
+        Route::get('/home','HomeSectionController@index');
+        Route::get('/contact','ContactController@index');
+        Route::post('/send-contact','ContactController@contact');
         Route::get('/footer','FooterController@index');
         Route::get('/services','ServiceController@index');
         Route::get('/partners','PartnerController@index');

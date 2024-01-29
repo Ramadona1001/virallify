@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('about_sections', function (Blueprint $table) {
+        Schema::create('section_gallery', function (Blueprint $table) {
             $table->id();
-            $table->boolean('status')->default(true);
-            $table->integer('order_no')->default(0);
-            $table->string('created_by')->nullable();
+            $table->unsignedBigInteger('section_id');
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade')->onUpdate('cascade');
             $table->string('image')->nullable();
             $table->timestamps();
         });
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('about_sections');
+        Schema::dropIfExists('sections');
     }
 };

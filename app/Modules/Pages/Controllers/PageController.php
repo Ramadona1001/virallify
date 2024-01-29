@@ -39,6 +39,7 @@ class PageController extends Controller
         $request->validate([
             'title.*' =>'required|string',
             'content.*' => 'required|string',
+            'slug.*' => 'required|string',
             'image' => 'image|mimes:jpg,png,jpeg'
         ]);
 
@@ -75,15 +76,13 @@ class PageController extends Controller
         $request->validate([
             'title.*' =>'required|string',
             'content.*' => 'required|string',
+            'slug.*' => 'required|string',
             'image' => 'image|mimes:jpg,png,jpeg'
         ]);
         if($p){
             $p->update($request->all());
 
             if($request->hasFile('page_image')){
-                if(File::exists($p->image)){
-                    File::delete($p->image);
-                }
                 $file = $request->page_image;
                 $p->update(
                     ['image'=> $this->upload($file,'pages')]
@@ -99,9 +98,6 @@ class PageController extends Controller
     public function delete(Page $p){
         //hasPermissions('delete_units_availabilities');
         if($p){
-            if(File::exists($p->image)){
-                File::delete($p->image);
-            }
             $p->delete();
             return redirect()->route('show_pages')->with('success' ,'');
         }

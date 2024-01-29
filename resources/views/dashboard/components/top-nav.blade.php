@@ -5,7 +5,7 @@
             <div class="navbar-brand-box">
                 <a href="" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="{{ $main_settings ? asset($main_settings->logo) : "" }}" alt="" style=" width: 200px; height: 29px; ">
+                                <img src="{{ $main_settings ? asset($main_settings->logo) : "" }}" alt="" style="width: 40px;height: 10px;">
                             </span>
                     <span class="logo-lg">
                                 <img src="{{ $main_settings ? asset($main_settings->logo) : "" }}" alt="" style=" width: 200px; height: 29px; ">
@@ -14,7 +14,7 @@
 
                 <a href="" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="{{ $main_settings ?  asset($main_settings->logo) : "" }}" alt="" style=" width: 200px; height: 29px; ">
+                                <img src="{{ $main_settings ?  asset($main_settings->logo) : "" }}" alt="" style="width: 40px;height: 10px;">
                             </span>
                     <span class="logo-lg">
                                 <img src="{{ $main_settings ? asset($main_settings->logo) : "" }}" alt="" style=" width: 200px; height: 29px; ">

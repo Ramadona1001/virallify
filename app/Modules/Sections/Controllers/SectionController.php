@@ -1,13 +1,13 @@
 <?php
 
-namespace AboutSections\Controllers;
+namespace Sections\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Trait\UploadImage;
 use Illuminate\Http\Request;
-use AboutSections\Models\AboutSection;
-use AboutSections\Models\AboutSectionGallery;
+use Sections\Models\Section;
+use Sections\Models\SectionGallery;
 
-class AboutSectionController extends Controller
+class SectionController extends Controller
 {
     public $path;
     use UploadImage;
@@ -15,29 +15,29 @@ class AboutSectionController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->path = 'AboutSections::';
+        $this->path = 'Sections::';
     }
 
     public function index()
     {
 //        hasPermissions('show_Aboutpage_footer_links');
-        $title = transWord('About Sections');
+        $title = transWord('Sections');
         $pages = [
-            [transWord('About Sections'),'show_about_sections']
+            [transWord('Sections'),'show_sections']
         ];
 
-        $about_sections = AboutSection::orderBy('order_no','asc')->get();
+        $sections = Section::orderBy('order_no','asc')->get();
 
-        return view($this->path.'index',compact('about_sections','pages','title'));
+        return view($this->path.'index',compact('sections','pages','title'));
     }
 
 
-    public function  edit(AboutSection $about_section){
+    public function  edit(Section $about_section){
 //        hasPermissions('update_Aboutpage_footer_links');
 
-        $title = transWord('About Sections');
+        $title = transWord('Sections');
         $pages = [
-            [transWord('About Sections'),'show_about_sections']
+            [transWord('Sections'),'show_sections']
         ];
 
         if($about_section){
@@ -54,21 +54,21 @@ class AboutSectionController extends Controller
             'content.*' => 'required|string',
         ]);
 
-        $about_section= AboutSection::create($request->all());
+        $about_section= Section::create($request->all());
         if (isset($request->images)) {
             foreach ($request->file('images') as $image) {
-                AboutSectionGallery::create([
+                SectionGallery::create([
                     'about_section_id' => $about_section->id,
-                    'image' => $this->upload($image,'about_sections')
+                    'image' => $this->upload($image,'sections')
                 ]);
             }
         }
         
-        return redirect()->route('show_about_sections')->with("success" ,"");
+        return redirect()->route('show_sections')->with("success" ,"");
     }
 
 
-    public function update(Request $request , AboutSection $about_section){
+    public function update(Request $request , Section $about_section){
 //        hasPermissions('create_Aboutpage_footer_links');
         $request->validate([
             'name.*' =>'required|string',
@@ -79,28 +79,28 @@ class AboutSectionController extends Controller
             $about_section->update($request->all());
             if (isset($request->images)) {
                 foreach ($request->file('images') as $image) {
-                    AboutSectionGallery::create([
+                    SectionGallery::create([
                         'about_section_id' => $about_section->id,
-                        'image' => $this->upload($image,'about_sections')
+                        'image' => $this->upload($image,'sections')
                     ]);
                 }
             }
         }
-        return redirect()->route('show_about_sections')->with("success" ,"");
+        return redirect()->route('show_sections')->with("success" ,"");
     }
 
 
-    public function delete(AboutSection $about_section){
+    public function delete(Section $about_section){
 //        hasPermissions('delete_Aboutpage_footer_links');
 
         if($about_section){
             $about_section->delete();
         }
 
-        return redirect()->route('show_about_sections')->with("success" ,"");
+        return redirect()->route('show_sections')->with("success" ,"");
     }
     
-    public function deleteGallery(AboutSectionGallery $gallery){
+    public function deleteGallery(SectionGallery $gallery){
 //        hasPermissions('delete_Aboutpage_footer_links');
 
         if($gallery){

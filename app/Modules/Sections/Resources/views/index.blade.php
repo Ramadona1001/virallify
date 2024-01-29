@@ -32,7 +32,7 @@
                     <strong class="card-title">{{ $title }}</strong>
 
                     <div style="text-align: end" class="add_btn">
-                        <a id="" class="btn btn-primary" href="javascript:void(0);" data-toggle="modal" data-target="#about_sectionsModal">
+                        <a id="" class="btn btn-primary" href="javascript:void(0);" data-toggle="modal" data-target="#sectionsModal">
                             <i class="fas fa-plus"></i>
                             {{transWord('Add New')}}
                         </a>
@@ -54,31 +54,36 @@
                                         <th>{{transWord('Content')}}</th>
                                         <th>{{ transWord('Button Link') }}</th>
                                         <th>{{transWord('Order Number')}}</th>
+                                        <th>{{transWord('Type')}}</th>
                                         <th>{{transWord('Actions')}}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($about_sections as $index => $about_section)
-                                        <tr  class="row_{{$about_section->id}}">
+                                    @foreach($sections as $index => $section)
+                                        <tr  class="row_{{$section->id}}">
                                             <td>{{$index + 1}}</td>
                                             <td>
-                                              {{$about_section->translate()->name}}
+                                              {{$section->translate()->name}}
                                             </td>
                                             
                                             <td>
-                                              {{$about_section->translate()->sub_title}}
+                                              {{$section->translate()->sub_title}}
                                             </td>
 
                                             <td>
-                                                {{$about_section->translate()->content}}
+                                                {{$section->translate()->content}}
                                             </td>
 
                                             <td>
-                                                <a href="{{ $about_section->btn_url }}" class="btn btn-primary">{{ $about_section->btn_text }}</a>
+                                                <a href="{{ $section->btn_url }}" class="btn btn-primary">{{ $section->btn_text }}</a>
                                             </td>
 
                                             <td>
-                                                {{ $about_section->order_no }}
+                                                {{ $section->order_no }}
+                                            </td>
+                                            
+                                            <td>
+                                                {{ $section->type }}
                                             </td>
 
 
@@ -86,7 +91,7 @@
                                             <td>
                                                 <ul style="max-width: 50px" class="dtr-details" >
                                                     <li>
-                                                        <a href="{{route('edit_about_sections',['about_section' => $about_section])}}"
+                                                        <a href="{{route('edit_sections',['section' => $section])}}"
                                                            class="text-info"
                                                            title="Edit"
                                                            data-original-title="Edit">
@@ -95,7 +100,7 @@
                                                     </li>
 
                                                     <li>
-                                                        <a onclick="return confirm('{{ transWord('Are You Sure?') }}')"  href="{{route('delete_about_sections',['about_section' => $about_section] )}}" class="text-danger sa-delete"  title="Delete" data-original-title="Delete">
+                                                        <a onclick="return confirm('{{ transWord('Are You Sure?') }}')"  href="{{route('delete_sections',['section' => $section] )}}" class="text-danger sa-delete"  title="Delete" data-original-title="Delete">
                                                             <i class="mdi mdi-trash-can font-size-14"></i>
                                                         </a>
                                                     </li>
@@ -119,7 +124,7 @@
     </div>
 
 
-    <div class="modal fade" id="about_sectionsModal" tabindex="-1" role="dialog"
+    <div class="modal fade" id="sectionsModal" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content ">
@@ -131,7 +136,7 @@
                 </div>
 
                 <div class="modal-body p-3">
-                    <form action="{{route('store_about_sections')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('store_sections')}}" method="post" enctype="multipart/form-data">
                         @csrf
 
 
@@ -208,6 +213,11 @@
                             </div>
                             
 
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="type">{{transWord('Type')}}</label>
+                            <input type="text" name="type" id="type" class="form-control" required>
                         </div>
 
                         <div class="modal-footer">

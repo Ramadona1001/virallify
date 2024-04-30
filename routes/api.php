@@ -10,18 +10,17 @@ Route::middleware(['localization'])->group(function(){
     });
     
     Route::group(["namespace"=>"App\Modules\APIS"],function (){
-        Route::post('/auth/login', 'Auth\UserController@login');
-        Route::post('/auth/register', 'Auth\UserController@createNewAccount');
+        Route::post('/login', 'Auth\UserController@login');
+        Route::post('/register', 'Auth\UserController@createNewAccount');
         
         
         Route::middleware(['auth:sanctum'])->group(function(){
-            Route::post('/auth/otp', 'Auth\UserController@otp');
-            Route::post('/auth/logout', 'Auth\UserController@logout');
+            Route::post('/logout', 'Auth\UserController@logout');
             
-            Route::get('/users-plans','PlanController@users');
             Route::post('/subscribe-plan','PlanController@subscribePlan');
             Route::post('/unsubscribe-plan','PlanController@unSubscribePlan');
             Route::post('/change-plan','PlanController@changePlan');
+            Route::get('/users-plans','PlanController@users');
             
             Route::get('/orders','OrderController@orders');
             Route::get('/single-order/{id}','OrderController@getSingleOrder');
@@ -37,6 +36,7 @@ Route::middleware(['localization'])->group(function(){
         Route::post('/send-contact','ContactController@contact');
         Route::get('/footer','FooterController@index');
         Route::get('/services','ServiceController@index');
+        Route::get('/social-channels','SocialMediaChannelController@index');
         Route::get('/partners','PartnerController@index');
         Route::get('/faq','FaqController@index');
     });

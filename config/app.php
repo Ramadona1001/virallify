@@ -212,10 +212,12 @@ return [
         Translates\Providers\TranslateServiceProvider::class,
         Accounts\Providers\AccountsServiceProvider::class,
         SocialMedia\Providers\SocialMediaServiceProvider::class,
+        SocialMediaChannel\Providers\SocialMediaChannelServiceProvider::class,
         ContactUs\Providers\ContactServiceProvider::class,
         Services\Providers\ServiceServiceProvider::class,
         Partners\Providers\PartnerServiceProvider::class,
-        HomeSections\Providers\HomeSectionServiceProvider::class,
+        Partners\Providers\PartnerServiceProvider::class,
+        ContactUs\Providers\ContactServiceProvider::class,
         HomeBanner\Providers\HomeBannerServiceProvider::class,
         Footer\Providers\FooterServiceProvider::class,
         Sections\Providers\SectionServiceProvider::class,
@@ -226,6 +228,10 @@ return [
         
         Permissions\Providers\PermissionServiceProvider::class,
         Plans\Providers\PlanServiceProvider::class,
+
+
+        // Dawson\Youtube\YoutubeServiceProvider::class,
+        
     ],
 
     /*
@@ -254,6 +260,7 @@ return [
         // 'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        // 'Youtube' => Dawson\Youtube\Facades\Youtube::class,
 
     ])->toArray(),
 

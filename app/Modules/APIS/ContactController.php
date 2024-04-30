@@ -30,11 +30,11 @@ class ContactController extends Controller
 
     public function contact(Request $request){
         $customMessages = [
-            'name.required' => transWord('card holder name is required'),
-            'email.required' => transWord('credit card number is required'),
-            'email.email' => transWord('credit card number is required'),
-            'subject.required' => transWord('credit card number is already exists'),
-            'message.required' => transWord('credit card number is not valid'),
+            'name.required' => transWord('name is required'),
+            'email.required' => transWord('email is required'),
+            'email.email' => transWord('email is not valid'),
+            'subject.required' => transWord('subject is requried'),
+            'message.required' => transWord('message is required'),
         ];
         $validatorRequest = Validator::make($request->all(),[
             'name' => 'required',

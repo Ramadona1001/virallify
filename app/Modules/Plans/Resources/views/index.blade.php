@@ -8,6 +8,7 @@
             height: auto !important;
         }
     </style>
+    <link rel="stylesheet" href="{{ setPublic() }}dashboard/assets/css/taginput.css">
 @endsection
 
 @section('breadcrumb')
@@ -51,8 +52,12 @@
                                         <th>#</th>
                                         <th>{{transWord('Name')}}</th>
                                         <th>{{transWord('Content')}}</th>
-                                        <th>{{transWord('Number of washes')}}</th>
+                                        <th>{{transWord('Items')}}</th>
                                         <th>{{transWord('Price')}}</th>
+                                        <th>{{transWord('Has AI')}}</th>
+                                        <th>{{transWord('Can Upload Video')}}</th>
+                                        <th>{{transWord('No. Channels')}}</th>
+                                        <th>{{transWord('No. Posts')}}</th>
                                         <th>{{transWord('Actions')}}</th>
                                     </tr>
                                     </thead>
@@ -66,14 +71,41 @@
                                             </td>
 
                                             <td>
-                                                {{$plan->translate()->content}}
+                                                {{ Str::substr($plan->translate()->content, 0,50).' ...' }}
                                             </td>
 
-                                            <td>{{ $plan->wash_number }}</td>
+                                            <td style="display: grid;">
+                                                @if (str_contains($plan->items, ','))
+                                                    @foreach (explode(',',$plan->items) as $item)
+                                                        <p class="badge badge-primary">{{ $item }}</p>
+                                                    @endforeach
+                                                @else
+                                                    <p class="badge badge-primary">{{ $plan->items }}</p>
+                                                @endif
+                                            </td>
 
                                             <td>
                                                 {{$plan->price}}
                                             </td>
+
+                                            <td>
+                                                @if ($plan->has_ai_assistant == 0)
+                                                    <span class="badge badge-danger"><i class="fa fa-times"></i></span>
+                                                @else
+                                                    <span class="badge badge-success"><i class="fa fa-check"></i></span>    
+                                                @endif
+                                            </td>
+                                            
+                                            <td>
+                                                @if ($plan->upload_video == 0)
+                                                    <span class="badge badge-danger"><i class="fa fa-times"></i></span>
+                                                @else
+                                                    <span class="badge badge-success"><i class="fa fa-check"></i></span>    
+                                                @endif
+                                            </td>
+
+                                            <td>{{ $plan->channels_count }}</td>
+                                            <td>{{ $plan->posts_count }}</td>
 
 
 
@@ -205,6 +237,11 @@
                                             <textarea id="content" rows="5" name="{{ $key }}[content]" class="form-control" placeholder="{{ transWord('content') }}" required></textarea>
                                         </div>
 
+                                        <div class="form-group mt-3 col-md-12">
+                                            <label>{{ transWord('Items') }} - {{ $lang }}</label>
+                                            <input type="text" data-role="tagsinput" name="{{ $key }}[items]" class="form-control" placeholder="{{ transWord('Items') }}" required>
+                                        </div>
+
 
                                     </div>
                                 @endforeach
@@ -212,17 +249,6 @@
                         </div>
 
                         <div class="row">
-
-
-
-                            <div class="col">
-                                <div class="form-group row">
-                                    <label for="wash_number">{{transWord('Number of washes')}}</label>
-                                    <div class="mt-4 mt-lg-0">
-                                        <input type="number" id="wash_number" class="form-control" name="wash_number" required>
-                                    </div>
-                                </div>
-                            </div>
                             
                             <div class="col">
                                 <div class="form-group row">
@@ -232,31 +258,44 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="col">
                                 <div class="form-group row">
-                                    <label for="subscription_type" class="">{{transWord('Subscription Type')}}</label>
+                                    <label for="has_ai_assistant">{{transWord('Has Ai Assistant')}}</label>
                                     <div class="mt-4 mt-lg-0">
-
-                                        <div class="form-check">
-                                            <input value="monthly"  type="radio" id="subscription_type_monthly" class="form-check-input" name="subscription_type">
-                                            <label class="form-check-label" for="subscription_type_monthly">{{transWord('Monthly')}}</label>
-                                        </div>
-
-                                        <div class="form-check">
-                                            <input value="yearly" type="radio" id="subscription_type_yearly" class="form-check-input" name="subscription_type">
-                                            <label class="form-check-label" for="subscription_type_yearly">{{transWord('Yearly')}}</label>
-                                        </div>
-
+                                        <select name="has_ai_assistant" id="has_ai_assistant" class="form-control" required>
+                                            <option value="1">{{ transWord('Yes') }}</option>
+                                            <option value="0">{{ transWord('No') }}</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
+                            <div class="col">
+                                <div class="form-group row">
+                                    <label for="upload_video">{{transWord('Can Upload Videos')}}</label>
+                                    <div class="mt-4 mt-lg-0">
+                                        <select name="upload_video" id="upload_video" class="form-control" required>
+                                            <option value="1">{{ transWord('Yes') }}</option>
+                                            <option value="0">{{ transWord('No') }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <label for="channels_count">{{transWord('No. Channels')}}</label>
+                                    <div class="mt-4 mt-lg-0">
+                                        <input type="number" id="channels_count" class="form-control" name="channels_count" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <label for="posts_count">{{transWord('No. Of Posts')}}</label>
+                                    <div class="mt-4 mt-lg-0">
+                                        <input type="number" id="posts_count" class="form-control" name="posts_count" required>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="modal-footer">
@@ -280,4 +319,5 @@
 @endsection
 
 @section('scripts')
+<script src="{{ setPublic() }}dashboard/assets/js/taginput.js"></script>
 @endsection

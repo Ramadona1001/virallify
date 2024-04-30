@@ -42,6 +42,7 @@
                                         <th>{{transWord('Email')}}</th>
                                         <th>{{transWord('Subject')}}</th>
                                         <th>{{transWord('Message')}}</th>
+                                        <th>{{transWord('Send At')}}</th>
                                         <th>{{transWord('Actions')}}</th>
                                     </tr>
                                     </thead>
@@ -53,6 +54,7 @@
                                             <td>{{$contact->email}}</td>
                                             <td>{{$contact->subject}}</td>
                                             <td>{{$contact->message}}</td>
+                                            <td>{{$contact->created_at}}</td>
                                             <td>
                                                 <ul style="max-width: 50px" class="dtr-details" >
 
@@ -78,115 +80,6 @@
 
 
     </div>
-
-
-    <div class="modal fade" id="ourTeamModal" tabindex="-1" role="dialog"
-         aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg">
-            <div class="modal-content ">
-                <div class="modal-header">
-                    <h5 class="modal-title mt-0" id="exampleModalScrollableTitle">New Team Member</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body p-3">
-                    <form action="{{route('store_our_team')}}" method="post" enctype="multipart/form-data">
-                        @csrf
-
-                        <div class="nav-align-top mb-4">
-
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                @foreach (config('app.languages') as $key => $lang)
-                                    <li class="nav-item">
-                                        <a class="nav-link @if ($loop->index == 0) active @endif" id="nav-{{ $key }}-tab" data-toggle="tab" href="#nav-{{ $key }}" role="tab" aria-controls="nav-{{ $key }}" aria-selected="@if ($loop->index == 0){{ 'true' }}@else{{ 'false' }}@endif">{{ $lang }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                            <div class="tab-content" id="myTabContent">
-                                @foreach (config('app.languages') as $key => $lang)
-                                    <div class="tab-pane fade  @if ($loop->index == 0) show active @endif" id="nav-{{ $key }}" role="tabpanel" aria-labelledby="nav-{{ $key }}-tab">
-                                        <div class="form-group mt-3 col-md-12">
-                                            <label>{{ transWord('Name') }} - {{ $lang }}</label>
-                                            <input  type="text" name="{{ $key }}[name]" class="form-control" placeholder="{{ transWord('Name') }}" required>
-                                        </div>
-
-                                        <div class="form-group mt-3 col-md-12">
-                                            <label for=""> {{transWord('Position')}} - {{$lang}}</label>
-                                            <input name="{{$key}}[position]"
-                                                   class="form-control" placeholder=""
-                                                   id="">
-                                        </div>
-
-                                    </div>
-                                @endforeach
-                            </div>
-
-
-                        </div>
-
-
-
-
-                        <div class="row">
-
-
-                            <div class="col-md-8">
-                                <div class="form-group mt-3">
-                                    <label for="file" class=""> {{transWord('Image')}}</label>
-                                    <div id="dropzone2">
-                                        <div>Click Or Drag Here</div>
-                                        <input name="avatar" type="file" id="imageUpload"/>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-4">
-                                <a target="_blank" href="">
-                                    <div id="imagePreview"></div>
-                                </a>
-                            </div>
-
-
-
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-md-12 col-form-label">Status </label>
-                                    <div class="col-md-12">
-                                        <div class="mt-4 mt-lg-0">
-                                            <select class="form-control" name="status">
-                                                <option value="1">
-                                                    Show in website
-                                                </option>
-                                                <option value="0">
-                                                    Hidden
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col d-md-flex align-items-end justify-content-end">
-                                <div class="form-group row">
-                                    <button type="submit" class="btn btn-primary">Save</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-
-
-
-
-
 
 
 @endsection

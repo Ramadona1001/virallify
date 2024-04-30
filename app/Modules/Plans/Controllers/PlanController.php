@@ -3,10 +3,12 @@
 namespace Plans\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\PayPal\SubscriptionPlan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Plans\Models\Plan;
 use Plans\Models\UserPlan;
+use Spatie\Permission\Models\Role;
 
 class PlanController extends Controller
 {
@@ -27,6 +29,9 @@ class PlanController extends Controller
         ];
 
         $plans =Plan::latest()->get();
+        if (Role::where('name','Client')->first() == null) {
+            Role::create(['name'=>'Client']);
+        }
         $users = User::role('Client')->get();
         return view($this->path.'index',compact('plans','pages','title','users'));
     }
@@ -102,11 +107,17 @@ class PlanController extends Controller
     public function addUserPlan(Request $request){
         foreach ($request->users as $user) {
             $check = UserPlan::where('plan_id',$request->plan)->where('user_id',$user)->first();
+            $plan = Plan::findOrfail($request->plan);
             if (!$check) {
+                $paypal_plan = new SubscriptionPlan();
+                $paypal_plan_id = $paypal_plan->create($plan->name,$plan->content,$plan->price);
+                $paypal_plan->activate($paypal_plan_id->id);
+                
                 UserPlan::create([
-                    'user_id' => $user,
                     'plan_id' => $request->plan,
-                    'wash_number' => Plan::where('id',$request->plan)->first()->wash_number,
+                    'user_id' => $user,
+                    'publish' => 0,
+                    'paypal_plan_id' => $paypal_plan_id->id
                 ]);
             }
         }

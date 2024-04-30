@@ -71,11 +71,13 @@
                                             </td>
 
                                             <td>
-                                                {{$section->translate()->content}}
+                                                {{ Str::substr($section->translate()->content, 0, 50).' ...' }}
                                             </td>
 
                                             <td>
+                                                @if($section->btn_text != null)
                                                 <a href="{{ $section->btn_url }}" class="btn btn-primary">{{ $section->btn_text }}</a>
+                                                @endif
                                             </td>
 
                                             <td>

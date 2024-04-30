@@ -105,6 +105,7 @@ class UserController extends Controller
     {
         $title =transWord('Edit My Profile');
         $user = auth()->user();
+       
         $pages = [
             [transWord('My Profile'),''],
         ];

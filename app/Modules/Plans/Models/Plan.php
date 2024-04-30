@@ -11,8 +11,8 @@ use Properties\Models\Property;
 class Plan extends Model implements TranslatableContract
 {
     use Translatable;
-    public $translatedAttributes  = ['name','content'];
-    protected $fillable = ['status','created_by' , 'subscription_type' , 'price','wash_number'];
+    public $translatedAttributes  = ['name','content','items'];
+    protected $fillable = ['status','created_by' , 'price','has_ai_assistant','upload_video','channels_count','posts_count'];
 
     protected $table = 'plans';
 

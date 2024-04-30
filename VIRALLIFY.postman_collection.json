@@ -8,6 +8,181 @@
 	},
 	"item": [
 		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ahmed@ahmed.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ahmed Ramadan",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ahmed@ahmed.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "01117725721",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Subscribe Plan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "plan_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/subscribe-plan",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subscribe-plan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Un Subscribe Plan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "plan_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/unsubscribe-plan",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"unsubscribe-plan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Plan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "plan_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "changed_plan_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/change-plan",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"change-plan"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Home",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -26,6 +201,30 @@
 					],
 					"path": [
 						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Plans",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}/plans",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"plans"
 					]
 				}
 			},
@@ -68,13 +267,13 @@
 					"formdata": []
 				},
 				"url": {
-					"raw": "{{base_url}}/page/{slug}",
+					"raw": "{{base_url}}/pages/about-us",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"page",
-						"{slug}"
+						"pages",
+						"about-us"
 					]
 				}
 			},
@@ -106,33 +305,30 @@
 		},
 		{
 			"name": "Send Contact Us",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "formdata",
 					"formdata": [
 						{
 							"key": "name",
-							"value": "",
+							"value": "aa",
 							"type": "text"
 						},
 						{
 							"key": "email",
-							"value": "",
+							"value": "aa@a.com",
 							"type": "text"
 						},
 						{
 							"key": "subject",
-							"value": "",
+							"value": "aa",
 							"type": "text"
 						},
 						{
 							"key": "message",
-							"value": "",
+							"value": "aa",
 							"type": "text"
 						}
 					]

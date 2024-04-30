@@ -2,10 +2,10 @@
 
 namespace ContactUs\Controllers;
 use App\Http\Controllers\Controller;
-use ContactusSection\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Http\Trait\UploadImage;
+use ContactUs\Models\Contact;
 use OurTeamSection\Models\OurTeam;
 
 

@@ -10,8 +10,8 @@ use Astrotomic\Translatable\Translatable;
 class Section extends Model implements TranslatableContract
 {
     use Translatable;
-    public $translatedAttributes  = ['name','content','btn_text','btn_url'];
-    protected $fillable = ['status','created_by','type'];
+    public $translatedAttributes  = ['name','sub_title','content','btn_text','btn_url'];
+    protected $fillable = ['status','created_by','type','order_no'];
 
     public function gallery()
     {

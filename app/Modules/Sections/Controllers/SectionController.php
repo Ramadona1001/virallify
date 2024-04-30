@@ -32,7 +32,7 @@ class SectionController extends Controller
     }
 
 
-    public function  edit(Section $about_section){
+    public function  edit(Section $section){
 //        hasPermissions('update_Aboutpage_footer_links');
 
         $title = transWord('Sections');
@@ -40,8 +40,8 @@ class SectionController extends Controller
             [transWord('Sections'),'show_sections']
         ];
 
-        if($about_section){
-            return view($this->path.'edit',compact('about_section','pages','title'));
+        if($section){
+            return view($this->path.'edit',compact('section','pages','title'));
         }
     }
 
@@ -54,11 +54,11 @@ class SectionController extends Controller
             'content.*' => 'required|string',
         ]);
 
-        $about_section= Section::create($request->all());
+        $section= Section::create($request->all());
         if (isset($request->images)) {
             foreach ($request->file('images') as $image) {
                 SectionGallery::create([
-                    'about_section_id' => $about_section->id,
+                    'section_id' => $section->id,
                     'image' => $this->upload($image,'sections')
                 ]);
             }
@@ -68,19 +68,19 @@ class SectionController extends Controller
     }
 
 
-    public function update(Request $request , Section $about_section){
+    public function update(Request $request , Section $section){
 //        hasPermissions('create_Aboutpage_footer_links');
         $request->validate([
             'name.*' =>'required|string',
             'content.*' => 'required|string',
         ]);
 
-        if($about_section){
-            $about_section->update($request->all());
+        if($section){
+            $section->update($request->all());
             if (isset($request->images)) {
                 foreach ($request->file('images') as $image) {
                     SectionGallery::create([
-                        'about_section_id' => $about_section->id,
+                        'section_id' => $section->id,
                         'image' => $this->upload($image,'sections')
                     ]);
                 }
@@ -90,11 +90,11 @@ class SectionController extends Controller
     }
 
 
-    public function delete(Section $about_section){
+    public function delete(Section $section){
 //        hasPermissions('delete_Aboutpage_footer_links');
 
-        if($about_section){
-            $about_section->delete();
+        if($section){
+            $section->delete();
         }
 
         return redirect()->route('show_sections')->with("success" ,"");

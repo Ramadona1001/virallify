@@ -86,6 +86,15 @@
                 </li>
                 @endcan
                 
+                @can('show_social_channel_media')
+                <li>
+                    <a href="{{ route('show_social_channel_settings') }}" class="waves-effect">
+                        <i class="ri-dashboard-line"></i>
+                        <span>{{ transWord('Social Media Channels') }}</span>
+                    </a>
+                </li>
+                @endcan
+                
                 @can('show_services')
                 <li>
                     <a href="{{ route('show_services') }}" class="waves-effect">
@@ -95,29 +104,22 @@
                 </li>
                 @endcan
                 
-                @can('show_orders')
-                    {{-- <li>
-                        <a href="javascript: void(0);" class="has-arrow waves-effect">
-                            <i class="ri-store-2-line"></i>
-                            <span>{{ transWord('Orders') }}</span>
-                        </a>
-                        <ul class="sub-menu" aria-expanded="false">
-                            @can('create_orders')
-                                <li><a href="{{ route('create_orders') }}">{{ transWord('New Order') }}</a></li>
-                            @endcan
-                            <li><a href="{{ route('show_orders') }}">{{ transWord('Orders') }}</a></li>
-                        </ul>
-                    </li> --}}
-                @endcan
-
-
-
+              
     
                 @can('show_partners')
                 <li>
                     <a href="{{ route('show_partners') }}" class="waves-effect">
                         <i class="ri-dashboard-line"></i>
                         <span>{{ transWord('Partners') }}</span>
+                    </a>
+                </li>
+                @endcan
+                
+                @can('show_contact_messages')
+                <li>
+                    <a href="{{ route('show_contact_messages') }}" class="waves-effect">
+                        <i class="ri-dashboard-line"></i>
+                        <span>{{ transWord('Contact Us') }}</span>
                     </a>
                 </li>
                 @endcan
